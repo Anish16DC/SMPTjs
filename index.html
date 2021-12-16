@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		
+		<form onsubmit="sendEmail(); reset(); return false;">
+			<h3>GET IN TOUCH</h3>
+			<input type="text" id="name" placeholder="Your Name" required>
+			<input type="text" id="email" placeholder="Email Id" required>
+			<input type="text" id="phone" placeholder="Mobile No." required>
+			<textarea id="message" rows="4"></textarea>
+			<button type="submit">SEND</button>
+		</form>
+
+
+	</div>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script type="text/javascript">
+	function sendEmail(){
+		Email.send({
+		Host:"smtp.gmail.com",
+		Username:"anish16bd@gmail.com",
+		Password:"j@gu@r@a9822760498",
+		To:"",
+		From:document.getElementById("email").value,
+		Subject:"New Contact Form Enquiry",
+		Body:"Name:"+document.getElementById("name").value
+					+document.getElementById("email").value
+					+document.getElementById("phone").value
+					+document.getElementById("message").value
+
+
+	}).then(
+		message=>alert("Hello")
+		);
+	}
+	
+</script>
+</body>
+</html>
